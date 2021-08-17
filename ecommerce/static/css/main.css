@@ -1,3 +1,9 @@
 body{
-    background-color: grey;
+    background: url("../images/confetti.svg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.navbar{
+    background-color: #C75EFF;
 }
