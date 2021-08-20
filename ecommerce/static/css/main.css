@@ -1,9 +1,24 @@
 body{
-    background: url("../images/confetti.svg");
+    background: url("../images/subtle-prism.svg");
     background-attachment: fixed;
     background-size: cover;
 }
 
 .navbar{
-    background-color: #C75EFF;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-brand{
+    font-family: 'Montserrat Alternates', sans-serif;    
+}
+
+.bg-dark{
+    margin: 10px!important;
+    padding: 10px!important;
+    background: rgba( 255, 255, 255, 0.55 )!important;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 )!important;
+    backdrop-filter: blur( 12.5px )!important;
+    -webkit-backdrop-filter: blur( 12.5px )!important;
+    border-radius: 10px!important;
+    border: 1px solid rgba( 255, 255, 255, 0.18 )!important;   
 }
