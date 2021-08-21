@@ -2,6 +2,12 @@ body{
     background: url("../images/subtle-prism.svg");
     background-attachment: fixed;
     background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.brand{
+    max-width: 40px;
+    max-height: 40px;
 }
 
 .navbar{
@@ -12,13 +18,29 @@ body{
     font-family: 'Montserrat Alternates', sans-serif;    
 }
 
-.bg-dark{
-    margin: 10px!important;
-    padding: 10px!important;
-    background: rgba( 255, 255, 255, 0.55 )!important;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 )!important;
-    backdrop-filter: blur( 12.5px )!important;
-    -webkit-backdrop-filter: blur( 12.5px )!important;
-    border-radius: 10px!important;
-    border: 1px solid rgba( 255, 255, 255, 0.18 )!important;   
+.bg-glass{
+    margin: 10px;
+    padding: 10px;
+    background: rgba( 255, 255, 255, 0.55 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 12.5px );
+    -webkit-backdrop-filter: blur( 12.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.image{
+    background-image: url(../images/bracelet.png);
+    width: 260px;
+    height: 120px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.image2{
+    background-image: url(../images/bracelet2.png);
+    width: 260px;
+    height: 210px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

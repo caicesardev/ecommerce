@@ -19,3 +19,11 @@ def about(request):
 def contact(request):
     context = {}
     return render(request, 'store/contact.html', context)
+
+def login(request):
+    context = {}
+    return render(request, 'store/login.html', context)
+    
+def register(request):
+    context = {}
+    return render(request, 'store/register.html', context)

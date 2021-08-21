@@ -18,12 +18,16 @@
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/1e7c940a9f.js" crossorigin="anonymous"></script>
-  
+
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    
   <!-- CSS -->
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'images/moon.ico' %}" type="image/x-icon" sizes="16x16" />
 
   <title>Ecommerce</title>
 
@@ -31,11 +35,12 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-light bg-glass">
 
     <div class="container-fluid">
 
-      <a class="navbar-brand" href="{% url 'store' %}">Moonlight</a>
+      <a class="navbar-brand mt-1" href="{% url 'store' %}"><img src="{% static 'images/moon.png' %}"
+          alt="moonlight logo" class="brand" style="margin-top: -5px; margin-bottom: 1px;"";">Moonlight</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -59,15 +64,37 @@
 
         </ul>
 
-        <button class="btn btn-outline-success mb-2 mt-2" style="margin-right: 5px;">Iniciar Sesión</button>
-        <button class="btn btn-outline-success mb-2 mt-2" style="margin-left: 5px; margin-right: 10px;">Registrarse</button>
+        <a href="{% url 'login' %}" class="btn btn-outline-success mb-2 mt-2" style="margin-right: 5px;">Iniciar
+          Sesión</a>
+        <a href="{% url 'register' %}" class="btn btn-outline-success mb-2 mt-2"
+          style="margin-left: 5px; margin-right: 10px;">Registrarse</a>
+        <a href="{% url 'checkout' %}" class="btn btn-outline-success mb-2 mt-2" style="margin-right: 15px;"><i
+            class="fas fa-shopping-cart"></i></a>
 
         <select class="selectpicker" data-width="fit">
-          <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Español</option>
-          <option data-content='<span class="flag-icon flag-icon-mx"></span> Español'>English</option>
-          <option data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Portuguese</option>
+          <option>Español</option>
+          <option>English</option>
+          <option>Português</option>
         </select>
 
+
+        <ul class="navbar nav ms-2">
+
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdownMenuLink"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40"
+              height="40" class="rounded-circle">
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-xl-end dropdown-menu-sm-start" aria-labelledby="navbarDropdownMenuLink">
+            <p class="ms-3 me-3 mt-2">Fox</p>
+            <hr>
+            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="#">Configuración</a></li>
+            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+          </ul>
+
+        </ul>
 
       </div>
 
@@ -76,15 +103,15 @@
   </nav>
 
 
-  <div class="container" style="height: 400px; background: white;">
+  <section class="bg-glass" style="min-height: 400px; margin: 10px;">
     {% block content %}
 
     {% endblock content %}
-  </div>
+  </section>
 
 
   <!-- Footer -->
-  <footer class="bg-dark text-center text-dark">
+  <footer class="bg-glass text-center text-dark">
     <!-- Grid container -->
     <div class="container p-4">
       <!-- Section: Social media -->
@@ -260,9 +287,10 @@
   <!-- Footer -->
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+  <script src="{% static 'js/main.js' %}" crossorigin="anonymous"></script>
 
 </body>
 
