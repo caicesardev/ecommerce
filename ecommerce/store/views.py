@@ -27,3 +27,11 @@ def login(request):
 def register(request):
     context = {}
     return render(request, 'store/register.html', context)
+    
+def dashboard(request):
+    context = {}
+    return render(request, 'store/dashboard.html', context)
+    
+def settings(request):
+    context = {}
+    return render(request, 'store/settings.html', context)

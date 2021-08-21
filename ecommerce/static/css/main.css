@@ -1,4 +1,5 @@
 body{
+    height: 100vh;
     background: url("../images/subtle-prism.svg");
     background-attachment: fixed;
     background-size: cover;
@@ -44,3 +45,4 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+ 
