@@ -3,7 +3,7 @@
 {% block content %}
 
 <!-- Section -->
-<div class="container flex justify-content-center">
+<div class="container flex justify-content-center mt-4 mb-5">
 
     <div class="row">
         <div class="">
@@ -16,70 +16,22 @@
     </div>
 
     <div class="row text-center">
-
+        {% for product in products %}
         <div class="col bg-glass">
-            <div class="container img-fluid image"></div>
+            <div class="container img-fluid">
+                <img class="image" src="{{product.ImageURL}}">
+            </div>
             <div class="container">
-                <h5>Producto 1</h5>
-                <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, officia.</p>
-                <h5 class="text-success">7.99€</h5>
-                <button class="btn btn-outline-success mb-2 mt-2" style="margin-right: 5px;">Añadir al carrito</button>
+                <h5>{{product.name}}</h5>
+                <p class="text-secondary">{{product.description|default_if_none:""}}</p>
+                <h5 class="text-success">${{product.price|floatformat:2}}</h5>
+            </div>
+            <div class="container d-flex justify-content-center">
+                <button class="btn btn-outline-success mb-2 mt-2" style="margin-right: 5px; width: 100px;">Añadir</button>
+                <button class="btn btn-outline-success mb-2 mt-2" style="margin-right: 5px; width: 100px;">Ver</button>
             </div>
         </div>
-
-        <div class="col bg-glass">
-            <div class="container img-fluid image"></div>
-            <div class="container">
-                <h5>Producto 2</h5>
-                <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, officia.</p>
-                <h5 class="text-success">7.99€</h5>
-                <button class="btn btn-outline-success mb-2 mt-2" style="margin-right: 5px;">Añadir al carrito</button>
-            </div>
-        </div>
-
-        <div class="col bg-glass">
-            <div class="container img-fluid image"></div>
-            <div class="container">
-                <h5>Producto 3</h5>
-                <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, officia.</p>
-                <h5 class="text-success">7.99€</h5>
-                <button class="btn btn-outline-success mb-2 mt-2" style="margin-right: 5px;">Añadir al carrito</button>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row text-center">
-
-        <div class="col bg-glass">
-            <div class="container img-fluid image2"></div>
-            <div class="container">
-                <h5>Producto 4</h5>
-                <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, officia.</p>
-                <h5 class="text-success">7.99€</h5>
-                <button class="btn btn-outline-success mb-2 mt-2" style="margin-right: 5px;">Añadir al carrito</button>
-            </div>
-        </div>
-
-        <div class="col bg-glass">
-            <div class="container img-fluid image2"></div>
-            <div class="container">
-                <h5>Producto 5</h5>
-                <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, officia.</p>
-                <h5 class="text-success">7.99€</h5>
-                <button class="btn btn-outline-success mb-2 mt-2" style="margin-right: 5px;">Añadir al carrito</button>
-            </div>
-        </div>
-
-        <div class="col bg-glass">
-            <div class="container img-fluid image2"></div>
-            <div class="container">
-                <h5>Producto 6</h5>
-                <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, officia.</p>
-                <h5 class="text-success">7.99€</h5>
-                <button class="btn btn-outline-success mb-2 mt-2" style="margin-right: 5px;">Añadir al carrito</button>
-            </div>
-        </div>
+        {% endfor %}
 
     </div>
 

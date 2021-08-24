@@ -31,17 +31,8 @@ body{
 }
 
 .image{
-    background-image: url(../images/bracelet.png);
     width: 260px;
-    height: 120px;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.image2{
-    background-image: url(../images/bracelet2.png);
-    width: 260px;
-    height: 210px;
+    height: 200px;
     background-repeat: no-repeat;
     background-size: cover;
 }
