@@ -2,7 +2,76 @@
 {% load static %}
 {% block content %}
 
+<div class="row" style="margin: 10px;">
+
+    <div class="col-lg-12">
+
+        <br>
+
+        <div class="box-element">
+
+            <a href="{% url 'store' %}" class="btn btn-success"> &#x2190 Volver a la tienda</a>
+
+            <br>
+            <br>
+
+            <table class="table">
+
+                <tr>
+
+                    <th>
+                        <h5>Productos: <strong>3</strong></h5>
+                    </th>
+                    <th>
+                        <h5>Total: <strong>42€</strong></h5>
+                    </th>
+                    <th>
+
+                        <a href="{% url 'checkout' %}" class="btn btn-outline-success"
+                            style="float: right; margin: 5px;">Proceder con el pago</a>
+
+                    </th>
 
 
+                </tr>
+
+            </table>
+
+        </div>
+
+        <br>
+
+        <div class="box-element">
+
+            <div
+                style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid black;">
+
+                <div style="flex:2"></div>
+                <div style="flex:2">Producto</div>
+                <div style="flex:1">Precio</div>
+                <div style="flex:1">Cantidad</div>
+                <div style="flex:1">Total</div>
+
+            </div>
+
+            <div
+                style="display: flex; align-items: flex-stretch; padding-bottom: 10px; border-bottom: 1px solid black;">
+
+                <div class="container-fluid d-flex align-items-center">
+
+                    <div style="flex:2"><img src="{% static 'images/funko.png' %}"
+                            style="width: 100px; vertical-align: middle;"></div>
+                    <div style="flex:2">Nombre</div>
+                    <div style="flex:1">7.99€</div>
+                    <div style="flex:1"></div>
+                    <div style="flex:1"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock content %}

@@ -19,15 +19,45 @@ body{
     font-family: 'Montserrat Alternates', sans-serif;    
 }
 
+/* slightly transparent fallback */
 .bg-glass{
     margin: 10px;
     padding: 10px;
-    background: rgba( 255, 255, 255, 0.55 );
+    background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 12.5px );
-    -webkit-backdrop-filter: blur( 12.5px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.bg-glass-primary{
+    background: rgba( 142, 184, 249, 0.55 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+/* if backdrop support: glassmorphism applies */
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .bg-glass{
+        margin: 10px;
+        padding: 10px;
+        background: rgba( 255, 255, 255, 0.55 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 12.5px );
+        -webkit-backdrop-filter: blur( 12.5px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+
+    .bg-glass-primary{
+        background: rgba( 142, 184, 249, 0.55 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 12.5px );
+        -webkit-backdrop-filter: blur( 12.5px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+    
 }
 
 .image{
