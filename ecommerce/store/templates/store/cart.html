@@ -2,75 +2,112 @@
 {% load static %}
 {% block content %}
 
-<div class="row" style="margin: 10px;">
+<div class="container-fluid mt-4 mb-4">
 
-    <div class="col-lg-12">
+    <div class="row">
 
-        <br>
+        <form class="d-flex">
+            <a href="{% url 'store' %}" class="btn btn-success me-auto"> &#x2190 Volver a la tienda</a>
+            <a href="{% url 'checkout' %}" class="btn btn-success ms-2">Proceder con el pago</a>
+        </form>
 
-        <div class="box-element">
+    </div>
 
-            <a href="{% url 'store' %}" class="btn btn-success"> &#x2190 Volver a la tienda</a>
+    <br>
 
-            <br>
-            <br>
+    <!-- Title -->
+    <div class="row">
 
-            <table class="table">
+        <div class="col d-flex d-inline">
 
-                <tr>
-
-                    <th>
-                        <h5>Productos: <strong>3</strong></h5>
-                    </th>
-                    <th>
-                        <h5>Total: <strong>42€</strong></h5>
-                    </th>
-                    <th>
-
-                        <a href="{% url 'checkout' %}" class="btn btn-outline-success"
-                            style="float: right; margin: 5px;">Proceder con el pago</a>
-
-                    </th>
-
-
-                </tr>
-
-            </table>
-
-        </div>
-
-        <br>
-
-        <div class="box-element">
-
-            <div
-                style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid black;">
-
-                <div style="flex:2"></div>
-                <div style="flex:2">Producto</div>
-                <div style="flex:1">Precio</div>
-                <div style="flex:1">Cantidad</div>
-                <div style="flex:1">Total</div>
-
-            </div>
-
-            <div
-                style="display: flex; align-items: flex-stretch; padding-bottom: 10px; border-bottom: 1px solid black;">
-
-                <div class="container-fluid d-flex align-items-center">
-
-                    <div style="flex:2"><img src="{% static 'images/funko.png' %}"
-                            style="width: 100px; vertical-align: middle;"></div>
-                    <div style="flex:2">Nombre</div>
-                    <div style="flex:1">7.99€</div>
-                    <div style="flex:1"></div>
-                    <div style="flex:1"></div>
-                </div>
-            </div>
+            <h4>Productos en tu carrito de la compra</h4>
+            <button class="btn btn-success disabled ms-4">{{order.get_cart_items}}</button>
 
         </div>
 
     </div>
+
+    <br>
+
+    {% for item in items %}
+
+    <!-- Products -->
+    <div class="row pt-2 pb-2" style="border-top: solid 1px grey;">
+
+        <!-- Image -->
+        <div class="col-xl-1 col-md-2 col-sm-12 d-flex align-items-center">
+
+            <img class="img-fluid" src="{{item.product.ImageURL}}">
+
+        </div>
+
+        <!-- Product name -->
+        <div class="col-xl-4 col-md-4 col-sm-12 mt-2">
+
+            <h5 class="fw-bold">{{item.product.name}}</h5>
+            <p class="text-secondary">Order by 5pm, delivers Tomorrow - Fastest|Wed Sep 7 - Free</p>
+            <button class="btn btn-outline-success btn-sm dropdown-toggle" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseExample" aria-controls="collapseExample" aria-expanded="false"><i
+                    class="fas fa-plus me-1"></i>Mostrar
+                opciones de regalo
+            </button>
+            <div class="collapse" id="collapseExample">
+
+                <div class="card card-body mt-2">
+                    Some placeholder content for the collapse component. This panel is hidden by default but revealed
+                    when the user activates the relevant trigger.
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Product price -->
+        <div class="col-3 col-xl-2 col-md-2 col-sm-2 mt-3 mt-sm-2 d-flex align-items-center justify-content-center">
+
+            <h5 class="text-secondary">{{item.product.price|floatformat:2}}€</h5>
+
+        </div>
+
+        <!-- Quantity -->
+        <div class="col-6 col-xl-2 col-md-2 col-sm-8 mt-2 mt-sm-2 d-flex align-items-center justify-content-center">
+
+            <p class="quantity">x{{item.quantity}}</p>
+
+        </div>
+
+        <!-- Total price -->
+        <div class="col-3 col-xl-2 col-md-2 col-sm-1 mt-3 mt-sm-2 d-flex align-items-center justify-content-center">
+
+            <h5 class="fw-bold text-success">{{item.get_total}}€</h5>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+    <div class="row pt-4" style="border-top: solid 1px grey;">
+        <div class="col-1"></div>
+        <div class="col-4"></div>
+        <div class="col-2"></div>
+        <div class="col-2 d-flex justify-content-end align-items-center">
+            <h4 class="text-danger fw-bold">Total:</h4>
+        </div>
+        <div class="col-2 d-flex justify-content-center align-items-center">
+            <h4 class="text-success fw-bold">{{order.get_cart_total|floatformat:2}}€</h4>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <form class="d-flex">
+        <a href="{% url 'checkout' %}" class="btn btn-success ms-auto me-3">Proceder con el pago</a>
+    </form>
+</div>
+
 
 </div>
 

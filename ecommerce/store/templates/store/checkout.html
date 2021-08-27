@@ -2,7 +2,94 @@
 {% load static %}
 {% block content %}
 
+<div class="container mt-3 mb-3">
+
+    <form class="needs-validation" novalidate>
+
+        <div class="d-flex d-inline">
+            <div class="col-md-6 me-2">
+                <input type="text" placeholder="Nombre" class="form-control" id="validationCustom01" required>
+                <div class="invalid-feedback">
+                    Este campo es obligatorio
+                </div>
+            </div>
+            <div class="col-md-6 ms-2">
+                <input type="text" placeholder="Correo electrónico" class="form-control" id="validationCustom02"
+                    required>
+                <div class="invalid-feedback">
+                    Este campo es obligatorio
+                </div>
+            </div>
+        </div>
+
+        <hr class="ms-5 me-5">
+
+        <div class="d-flex d-inline">
+            <div class="col-md-6 me-2 mb-2">
+                <input type="text" placeholder="Dirección" class="form-control" id="validationCustom03" required>
+                <div class="invalid-feedback">
+                    Este campo es obligatorio
+                </div>
+            </div>
+            <div class="col-md-6 ms-2 mb-2">
+                <input type="text" placeholder="Ciudad" class="form-control" id="validationCustom04" required>
+                <div class="invalid-feedback">
+                    Este campo es obligatorio
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex d-inline">
+            <div class="col-md-6 me-2 mb-2">
+                <input type="text" placeholder="Provínicia" class="form-control" id="validationCustom05" required>
+                <div class="invalid-feedback">
+                    Este campo es obligatorio
+                </div>
+            </div>
+            <div class="col-md-6 ms-2 mb-2">
+                <input type="text" placeholder="Código postal" class="form-control" id="validationCustom06" required>
+                <div class="invalid-feedback">
+                    Este campo es obligatorio
+                </div>
+            </div>
+        </div>
+
+        <hr class="ms-5 me-5">
+
+        <br>
+
+        <div class="d-flex d-inline justify-content-end">
+            <button class="btn btn-success" type="submit">Continuar</button>
+        </div>
+
+    </form>
 
 
+
+
+
+    
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+
+</div>
 
 {% endblock content %}

@@ -1,6 +1,6 @@
 body{
     height: 100vh;
-    background: url("../images/subtle-prism.svg");
+    background: #CCCCFE;
     background-attachment: fixed;
     background-size: cover;
     font-family: 'Montserrat', sans-serif;
