@@ -100,8 +100,13 @@
           Sesión</a>
         <a href="{% url 'register' %}" class="btn btn-outline-success mb-2 mt-2"
           style="margin-left: 5px; margin-right: 10px;">Registrarse</a>
-        <a href="{% url 'cart' %}" class="btn btn-outline-success mb-2 mt-2" style="margin-right: 15px;"><i
-            class="fas fa-shopping-cart"></i></a>
+        <a href="{% url 'cart' %}" class="btn btn-outline-success position-relative mb-2 mt-2" style="margin-right: 15px;">
+          <i class="fas fa-shopping-cart"></i> 
+          <span id="cart-total" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+            {{cartItems}}
+          <span class="visually-hidden">Productos en el carrito</span>
+          </span>
+        </a>
 
         <select class="selectpicker" data-width="fit">
           <option>Español</option>
@@ -176,7 +181,7 @@
             <!--Grid column-->
             <div class="col-auto">
               <p class="pt-2">
-                <strong>Suscríbete a la nuestra newsletter</strong>
+                <strong>Suscríbete a la newsletter</strong>
               </p>
             </div>
             <!--Grid column-->
@@ -313,6 +318,11 @@
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 10px;">
       © 2021 Copyright:
       <a class="text-white" href="#">moonlightcr.com</a>
+
+      <div>Icons made by <a class="text-white" href="https://www.flaticon.com/authors/freepik"
+          title="Freepik">Freepik</a> from <a class="text-white" href="https://www.flaticon.com/"
+          title="Flaticon">www.flaticon.com</a>
+      </div>
     </div>
     <!-- Copyright -->
   </footer>

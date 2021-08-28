@@ -5,12 +5,10 @@
 <div class="container-fluid mt-4 mb-4">
 
     <div class="row">
-
         <form class="d-flex">
             <a href="{% url 'store' %}" class="btn btn-success me-auto"> &#x2190 Volver a la tienda</a>
             <a href="{% url 'checkout' %}" class="btn btn-success ms-2">Proceder con el pago</a>
         </form>
-
     </div>
 
     <br>
@@ -72,7 +70,12 @@
         <!-- Quantity -->
         <div class="col-6 col-xl-2 col-md-2 col-sm-8 mt-2 mt-sm-2 d-flex align-items-center justify-content-center">
 
-            <p class="quantity">x{{item.quantity}}</p>
+            <p>{{item.quantity}}</p>
+
+            <div class="ms-3 mb-2" style="display: inline-block;">
+                <img src="{% static 'images/up-arrow.png' %}" alt="up-arrow" style="max-width: 20px; display: block;">
+                <img src="{% static 'images/down-arrow.png' %}" alt="down-arrow" style="max-width: 20px; display: block;">
+            </div>
 
         </div>
 
