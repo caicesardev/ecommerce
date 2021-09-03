@@ -79,5 +79,21 @@ body{
       padding: 0 5px;
       vertical-align: top;
       margin-left: -10px; 
-  }
- 
+}
+
+.chg-quantity{
+    max-width: 20px; 
+    display: block; 
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.chg-quantity:hover{
+    border: solid #157347;
+    border-radius: 10px;
+}
+
+.chg-quantity:active{
+    border-radius: 10px;
+    background-color: #20AD6B;
+}

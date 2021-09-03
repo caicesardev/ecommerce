@@ -73,8 +73,8 @@
             <p>{{item.quantity}}</p>
 
             <div class="ms-3 mb-2" style="display: inline-block;">
-                <img src="{% static 'images/up-arrow.png' %}" alt="up-arrow" style="max-width: 20px; display: block;">
-                <img src="{% static 'images/down-arrow.png' %}" alt="down-arrow" style="max-width: 20px; display: block;">
+                <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static 'images/up-arrow.png' %}" alt="up-arrow">
+                <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static 'images/down-arrow.png' %}" alt="down-arrow">
             </div>
 
         </div>
@@ -95,7 +95,7 @@
         <div class="col-4"></div>
         <div class="col-2"></div>
         <div class="col-2 d-flex justify-content-end align-items-center">
-            <h4 class="text-danger fw-bold">Total:</h4>
+            <h4 class="text-danger fw-bold me-4 me-md-0">Total:</h4>
         </div>
         <div class="col-2 d-flex justify-content-center align-items-center">
             <h4 class="text-success fw-bold">{{order.get_cart_total|floatformat:2}}€</h4>
@@ -105,7 +105,7 @@
 </div>
 
 
-<div class="row">
+<div class="row mt-5 mb-4">
     <form class="d-flex">
         <a href="{% url 'checkout' %}" class="btn btn-success ms-auto me-3">Proceder con el pago</a>
     </form>
