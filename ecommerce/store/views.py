@@ -17,7 +17,7 @@ def store(request):
         cartItems = order['get_cart_items']
 
     products = Product.objects.all()
-    context = {"products":products, 'cartItems':cartItems}
+    context = {'products':products, 'cartItems':cartItems, 'shipping':False}
     return render(request, 'store/store.html', context)
 
 def cart(request):
@@ -31,7 +31,7 @@ def cart(request):
         order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'shipping':False}
     return render(request, 'store/cart.html', context)
 
 def checkout(request):
@@ -41,11 +41,11 @@ def checkout(request):
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
-        order = {'get_cart_total':0, 'get_cart_items':0}
         items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'shipping':False}
     return render(request, 'store/checkout.html', context)
 
 def about(request):
@@ -55,11 +55,11 @@ def about(request):
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
-        order = {'get_cart_total':0, 'get_cart_items':0}
         items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'shipping':False}
     return render(request, 'store/about.html', context)
 
 def contact(request):
@@ -69,11 +69,11 @@ def contact(request):
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
-        order = {'get_cart_total':0, 'get_cart_items':0}
         items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'shipping':False}
     return render(request, 'store/contact.html', context)
 
 def login(request):
@@ -83,11 +83,11 @@ def login(request):
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
-        order = {'get_cart_total':0, 'get_cart_items':0}
         items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'shipping':False}
     return render(request, 'store/login.html', context)
     
 def register(request):
@@ -97,11 +97,11 @@ def register(request):
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
-        order = {'get_cart_total':0, 'get_cart_items':0}
         items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'shipping':False}
     return render(request, 'store/register.html', context)
     
 def dashboard(request):
@@ -115,7 +115,7 @@ def dashboard(request):
         items = []
         cartItems = order['get_cart_items']
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'shipping':False}
     return render(request, 'store/dashboard.html', context)
     
 def settings(request):
@@ -125,11 +125,11 @@ def settings(request):
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
-        order = {'get_cart_total':0, 'get_cart_items':0}
         items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'shipping':False}
     return render(request, 'store/settings.html', context)
 
 def updateItem(request):

@@ -4,10 +4,10 @@
 
 <div class="container mt-3 mb-3">
 
-    <form class="needs-validation" novalidate>
+    <form class="needs-validation" id="form" novalidate>
 
         <div class="row">
-            <a href="{% url 'cart' %}" class="btn btn-success mb-4"> &#x2190 Volver al carrito</a> 
+            <a href="{% url 'cart' %}" class="btn btn-success mb-4"> &#x2190 Volver al carrito</a>
         </div>
 
         <div class="d-flex d-inline">
@@ -26,9 +26,9 @@
             </div>
         </div>
 
-        <hr class="ms-5 me-5">
+        <hr class="ms-5 me-5" id="line">
 
-        <div class="d-flex d-inline">
+        <div class="d-flex d-inline" id="shipping-info">
             <div class="col-md-6 me-2 mb-2">
                 <input type="text" placeholder="Dirección" class="form-control" id="validationCustom03" required>
                 <div class="invalid-feedback">
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div class="d-flex d-inline">
+        <div class="d-flex d-inline" id="shipping-info-2">
             <div class="col-md-6 me-2 mb-2">
                 <input type="" placeholder="Provínicia" class="form-control" id="validationCustom05" required>
                 <div class="invalid-feedback">
@@ -61,12 +61,18 @@
         <hr class="ms-5 me-5">
 
         <div class="row ms-5 me-5 mt-4">
-            <button class="btn btn-success mb-4" type="submit">Continuar</button>
+            <button class="btn btn-success mb-4" id="form-button" type="submit">Continuar</button>
         </div>
 
         <br>
 
     </form>
+
+    <div class="row d-none" id="payment-info">
+        <div class="col-12">
+            <h3 class="fw-bold">Opciones de PayPal</h3>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-12">
@@ -90,7 +96,7 @@
 
                 <h5 class="fw-bold">{{item.product.name}}</h5>
                 <p class="text-secondary">Order by 5pm, delivers Tomorrow - Fastest|Wed Sep 7 - Free</p>
-                
+
                 <ul>
                     <li>Opción de regalo</li>
                 </ul>
@@ -124,6 +130,7 @@
     </div>
 
     <script>
+
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict';
@@ -142,6 +149,28 @@
                 });
             }, false);
         })();
+
+        var shipping = '{{order.shipping}}'
+
+        if (shipping == 'False') {
+            var line = document.getElementById("line");
+
+            document.getElementById('shipping-info').innerHTML = ''
+            document.getElementById('shipping-info-2').innerHTML = ''
+
+            line.style.display = "none";
+
+        }
+
+        var form = document.getElementById('form')
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault()
+            console.log('Form Submitted...')
+            document.getElementById('form-button').classList.add('d-none')
+            document.getElementById('payment-info').classList.remove('d-none')
+        })
+
     </script>
 
 </div>

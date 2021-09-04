@@ -1,99 +1,98 @@
-body{
-    height: 100vh;
-    background: #CCCCFE;
-    background-attachment: fixed;
-    background-size: cover;
-    font-family: 'Montserrat', sans-serif;
+body {
+  height: 100vh;
+  background: #ccccfe;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: "Montserrat", sans-serif;
 }
 
-.brand{
-    max-width: 40px;
-    max-height: 40px;
+.brand {
+  max-width: 40px;
+  max-height: 40px;
 }
 
-.navbar{
-    font-family: 'Montserrat', sans-serif;
+.navbar {
+  font-family: "Montserrat", sans-serif;
 }
 
-.navbar-brand{
-    font-family: 'Montserrat Alternates', sans-serif;    
+.navbar-brand {
+  font-family: "Montserrat Alternates", sans-serif;
 }
 
 /* slightly transparent fallback */
-.bg-glass{
-    margin: 10px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+.bg-glass {
+  margin: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.bg-glass-primary{
-    background: rgba( 142, 184, 249, 0.55 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+.bg-glass-primary {
+  background: rgba(142, 184, 249, 0.55);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 /* if backdrop support: glassmorphism applies */
 @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-    .bg-glass{
-        margin: 10px;
-        padding: 10px;
-        background: rgba( 255, 255, 255, 0.55 );
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        backdrop-filter: blur( 12.5px );
-        -webkit-backdrop-filter: blur( 12.5px );
-        border-radius: 10px;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
-    }
+  .bg-glass {
+    margin: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12.5px);
+    -webkit-backdrop-filter: blur(12.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
 
-    .bg-glass-primary{
-        background: rgba( 142, 184, 249, 0.55 );
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        backdrop-filter: blur( 12.5px );
-        -webkit-backdrop-filter: blur( 12.5px );
-        border-radius: 10px;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
-    }
-    
+  .bg-glass-primary {
+    background: rgba(142, 184, 249, 0.55);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12.5px);
+    -webkit-backdrop-filter: blur(12.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
 }
 
 .badge {
-    padding-left: 9px;
-    padding-right: 9px;
-    -webkit-border-radius: 9px;
-    -moz-border-radius: 9px;
-    border-radius: 9px;
-  }
-  
-  .label-warning[href],
-  .badge-warning[href] {
-    background-color: #c67605;
-  }
-  #cart-total {
-      font-size: 12px;
-      background: #ff0000;
-      color: #fff;
-      padding: 0 5px;
-      vertical-align: top;
-      margin-left: -10px; 
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
 }
 
-.chg-quantity{
-    max-width: 20px; 
-    display: block; 
-    cursor: pointer;
-    transition: 0.1s;
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+#cart-total {
+  font-size: 12px;
+  background: #ff0000;
+  color: #fff;
+  padding: 0 5px;
+  vertical-align: top;
+  margin-left: -10px;
 }
 
-.chg-quantity:hover{
-    border: solid #157347;
-    border-radius: 10px;
+.chg-quantity {
+  max-width: 20px;
+  display: block;
+  cursor: pointer;
+  transition: 0.1s;
 }
 
-.chg-quantity:active{
-    border-radius: 10px;
-    background-color: #20AD6B;
+.chg-quantity:hover {
+  border: solid #157347;
+  border-radius: 10px;
+}
+
+.chg-quantity:active {
+  border-radius: 10px;
+  background-color: #20ad6b;
 }
