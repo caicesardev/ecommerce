@@ -62,6 +62,20 @@
 
             <form>
 
+
+                <div class="row justify-content-center align-items-center">
+
+                    <img src="{% static 'images/pro-pic.png' %}" alt="profile-picture" class="rounded-circle"
+                        style="max-width: 300px; max-height: 300px;">
+
+                </div>
+
+                <div class="row d-flex justify-content-center mt-3 ms-auto me-auto">
+
+                    <button class="btn btn-outline-success" style="max-width: 20rem;">Cambiar foto</button>
+
+                </div>
+
                 <div class="row">
 
                     <div class="col">
@@ -80,7 +94,7 @@
 
                 <hr>
 
-                <div class="row">
+                <div class="row d-flex flex-column flex-md-row">
 
                     <div class="col">
 
@@ -265,7 +279,7 @@
 
                 <hr>
 
-                <div class="row">
+                <div class="row d-flex flex-column flex-md-row">
 
                     <div class="col align-items-center">
 
@@ -304,7 +318,7 @@
 
                 <div class="form-"></div>
 
-                <div class="d-flex justify-content-center justify-content-sm-start mt-1 mb-2">
+                <div class="d-flex justify-content-center justify-content-md-start mt-2 mb-4">
                     <button type="submit" class="btn btn-success">Aplicar Cambios</button>
                     <button type="reset" class="btn btn-outline-success ms-2">Restablecer Cambios</button>
                 </div>
@@ -321,46 +335,86 @@
 
             <br>
 
-            <div class="row">
+            <div class="row justify-content-center align-items-center flex-column flex-md-row">
 
-
-                <div class="col" style="max-width: 20rem; min-width: 20rem;">
+                <div class="col" style="max-width: 20rem; min-width: 20.1rem; min-height: 14rem;">
 
                     <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
+
+                        <img src="{% static 'images/light-theme.png' %}" class="card-header card-img-top img-thumbnail"
+                            alt="light-theme"
+                            style="max-width: 300px; min-width: 300px; max-height: 150px; min-height: 150px;">
+
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
+
+                            <h5 class="card-title">Tema claro</h5>
+                            <p class="card-text">Por defecto activado. Cambia los colores de la página a colores claros.
+                            </p>
+
                         </div>
+
                         <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+
+                            <div class="form-check">
+
+                                <label class="form-check-label" for="activateLightMode">Activar</label>
+                                <input class="form-check-input" type="radio" name="themeRadio" id="activateLightMode"
+                                    value="light-theme" checked>
+
+                            </div>
+
                         </div>
+
                     </div>
 
                 </div>
 
-                <div class="col">
+                <div class="col" style="max-width: 20rem; min-width: 20.1rem; min-height: 14rem;">
 
-                    <div class="card" style="max-width: 20rem; min-width: 20rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
+                    <div class="card">
+
+                        <img src="{% static 'images/dark-theme.png' %}" class="card-header card-img-top img-thumbnail"
+                            alt="dark-theme"
+                            style="max-width: 300px; min-width: 300px; max-height: 150px; min-height: 150px;">
+
+                        <div class=" card-body">
+
+                            <h5 class="card-title">Tema oscuro</h5>
+                            <p class="card-text">Cambia los colores de la página a colores oscuros. Ideal para la noche.
+                            </p>
+
                         </div>
+
                         <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+
+                            <div class="form-check">
+
+                                <label class="form-check-label" for="activateDarkMode">Activar</label>
+                                <input class="form-check-input" type="radio" name="themeRadio" id="activateDarkMode"
+                                    value="dark-theme">
+
+                            </div>
+
                         </div>
+
                     </div>
 
                 </div>
 
             </div>
 
+            <br>
 
+            <div class="form-group small text-muted ms-1">
+                Podrá cambiar el tema de colores de la página web en cualquier momento. Estas opciones solo estan
+                disponibles para usuarios registrados.
+            </div>
+
+            <hr>
+
+            <div class="d-flex justify-content-center justify-content-md-start mt-1 mb-2">
+                <button type="submit" class="btn btn-success">Aplicar Cambios</button>
+            </div>
 
         </div>
 
