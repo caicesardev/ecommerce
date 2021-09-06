@@ -63,15 +63,14 @@
 
                 <div class="row">
 
+                    <div class="col">
 
-                    <div class="col align-items-center">
+                        <label class="ms-1 mt-2" for="userName">Nombre de Usuario</label>
 
-                        <label class="ms-1 mt-2" for="location">Nombre de Usuario</label>
+                        <input type="text" class="form-control mt-1" id="userName"
+                            placeholder="Introduzca su nombre de usuario" aria-describedby="userNameHelp">
 
-                        <input type="text" class="form-control" id="location" placeholder="Introduzca su ubicación"
-                            aria-describedby="locationHelp">
-
-                        <p id="locationHelp" class="text-muted small ms-1 mt-1">El nombre de usuario con el que se
+                        <p id="userNameHelp" class="text-muted small ms-1 mt-1">El nombre de usuario con el que se
                             identificará en la página web.</p>
 
                     </div>
@@ -96,12 +95,12 @@
 
                     <div class="col">
 
-                        <label class="ms-1 mt-2" for="fullName">País</label>
+                        <label class="ms-1 mt-2" for="countrySelect">País</label>
 
-                        <input type="text" class="form-control mt-1" id="fullName" aria-describedby="fullNameHelp"
-                            placeholder="Introduzca su nombre completo">
+                        <select class="form-select mt-1" id="countrySelect"
+                            aria-describedby="countrySelectHelp"></select>
 
-                        <p id="fullNameHelp" class="text-muted small ms-1 mt-1">Su país de orígen nos ayudará a
+                        <p id="countrySelectHelp" class="text-muted small ms-1 mt-1">Su país de orígen nos ayudará a
                             identificarle.</p>
 
                     </div>
@@ -110,8 +109,8 @@
 
                         <label class="ms-1 mt-2" for="fullName">Lenguaje</label>
 
-                        <input type="text" class="form-control mt-1" id="fullName" aria-describedby="fullNameHelp"
-                            placeholder="Introduzca su nombre completo">
+                        <select class="form-select mt-1" id="languageSelect"
+                            aria-describedby="countrySelectHelp"></select>
 
                         <p id="fullNameHelp" class="text-muted small ms-1 mt-1">Su lenguaje preferido nos dirá como
                             debemos hablarle.</p>
@@ -208,6 +207,34 @@
     <!-- Nav Content -->
 
 </div>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const countrySelect = document.getElementById('countrySelect');
+        const languageSelect = document.getElementById('languageSelect')
+
+        fetch('https://restcountries.eu/rest/v2/all').then(res => {
+            return res.json();
+        }).then(data => {
+            let countries = "";
+            let languages = "";
+
+            data.forEach(element => {
+                countries += `<option>${element.translations.es}</option>`;
+                languages += `<option>${element.languages[0].nativeName}</option>`;
+            })
+
+            countrySelect.innerHTML = countries;
+            languageSelect.innerHTML = languages;
+        }).catch(err => {
+            console.log(err);
+        })
+
+    })
+
+</script>
 
 
 {% endblock content %}
