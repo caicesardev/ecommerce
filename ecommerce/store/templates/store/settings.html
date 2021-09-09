@@ -48,9 +48,11 @@
 
     <hr class="bg-success" style="padding: 1px;">
 
-    <!-- Nav Content -->
+    <!-- Tab Content -->
 
     <div class="tab-content mt-4" id="myTabContent">
+
+        <!-- Account Tab -->
 
         <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
 
@@ -62,17 +64,16 @@
 
             <form>
 
-
                 <div class="row justify-content-center align-items-center">
-
-                    <img src="{% static 'images/pro-pic.png' %}" alt="profile-picture" class="rounded-circle"
-                        style="max-width: 300px; max-height: 300px;">
-
+                    <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
+                        alt="profile-picture" class="rounded-circle" style="max-width: 300px; max-height: 300px;">
                 </div>
 
-                <div class="row d-flex justify-content-center mt-3 ms-auto me-auto">
+                <div class="row d-flex justify-content-center mt-3 mb-1 ms-auto me-auto">
 
-                    <button class="btn btn-outline-success" style="max-width: 20rem;">Cambiar foto</button>
+                    <label class="btn btn-outline-success" style="max-width: 20rem;">
+                        Cambiar Imagen <input type="file" hidden>
+                    </label>
 
                 </div>
 
@@ -85,7 +86,8 @@
                         <input type="text" class="form-control mt-1" id="userName"
                             placeholder="Introduzca su nombre de usuario" aria-describedby="userNameHelp">
 
-                        <p id="userNameHelp" class="text-muted small ms-1 mt-1">El nombre de usuario con el que se
+                        <p id="userNameHelp" class="text-muted small ms-1 mt-1">El nombre de usuario con el
+                            que se
                             identificará en la página web.</p>
 
                     </div>
@@ -327,6 +329,10 @@
 
         </div>
 
+        <!-- Account Tab -->
+
+        <!-- Appereance Tab -->
+
         <div class="tab-pane fade" id="appereance" role="tabpanel" aria-labelledby="appereance-tab">
 
             <h4>Configuración de la apariencia</h4>
@@ -357,9 +363,9 @@
 
                             <div class="form-check">
 
-                                <label class="form-check-label" for="activateLightMode">Activar</label>
-                                <input class="form-check-input" type="radio" name="themeRadio" id="activateLightMode"
-                                    value="light-theme" checked>
+                                <label class="form-check-label" for="activateLightMode"><input class="form-check-input"
+                                        type="radio" name="themeRadio" id="activateLightMode"
+                                        value="{% static 'css/main.css' %}" checked>Activar</label>
 
                             </div>
 
@@ -389,9 +395,9 @@
 
                             <div class="form-check">
 
-                                <label class="form-check-label" for="activateDarkMode">Activar</label>
-                                <input class="form-check-input" type="radio" name="themeRadio" id="activateDarkMode"
-                                    value="dark-theme">
+                                <label class="form-check-label" for="activateDarkMode"><input class="form-check-input"
+                                        type="radio" name="themeRadio" id="activateDarkMode"
+                                        value="{% static 'css/dark.css' %}">Activar</label>
 
                             </div>
 
@@ -413,11 +419,12 @@
             <hr>
 
             <div class="d-flex justify-content-center justify-content-md-start mt-1 mb-2">
-                <button type="submit" class="btn btn-success">Aplicar Cambios</button>
+                <button id="applyTheme" type="submit" class="btn btn-success">Aplicar Cambios</button>
             </div>
 
         </div>
 
+        <!-- Appereance Tab -->
 
 
 
@@ -433,8 +440,7 @@
 
 
 
-
-
+        <!-- Notifications Tab -->
 
         <div class="tab-pane fade" id="notifications" role="tabpanel" aria-labelledby="notifications-tab">
 
@@ -446,6 +452,11 @@
 
         </div>
 
+        <!-- Notifications Tab -->
+
+
+        <!-- Privacy & Security Tab -->
+
         <div class="tab-pane fade" id="privacy-security" role="tabpanel" aria-labelledby="privacy-security-tab">
 
             <h4>Configuración de privacidad</h4>
@@ -455,6 +466,10 @@
             <br>
 
         </div>
+
+        <!-- Privacy & Security Tab -->
+
+        <!-- Help % Support Tab -->
 
         <div class="tab-pane fade" id="help-support" role="tabpanel" aria-labelledby="help-support-tab">
 
@@ -466,6 +481,10 @@
 
         </div>
 
+        <!-- Help % Support Tab -->
+
+        <!-- About Tab -->
+
         <div class="tab-pane fade" id="About" role="tabpanel" aria-labelledby="about-tab">
 
             <h4>Acerca de la configuración</h4>
@@ -476,6 +495,8 @@
 
         </div>
 
+        <!-- About Tab -->
+
     </div>
 
     <!-- Nav Content -->
@@ -484,6 +505,7 @@
 
 <script>
 
+    // Restcountries API.
     document.addEventListener('DOMContentLoaded', () => {
 
         const countrySelect = document.getElementById('countrySelect');
@@ -504,7 +526,21 @@
 
     })
 
-</script>
+    const btn = document.querySelector('#applyTheme');
+    // On button click
+    btn.onclick = function () {
+        const radioButtons = document.querySelectorAll('input[name="themeRadio"]');
+        let selectedValue;
+        for (const radioButton of radioButtons) {
+            if (radioButton.checked) {
+                selectedValue = radioButton.value;
+                // Change between dark mode and light mode.
+                document.getElementById("mystylesheet").href = selectedValue
+                break;
+            }
+        }
+    };
 
+</script>
 
 {% endblock content %}
