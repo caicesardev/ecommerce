@@ -2,18 +2,158 @@
 {% load static %}
 {% block content %}
 
-<div class="container mt-auto mb-auto">
+<!--  -->
 
-    <form method="POST" action="">
+<div class="container mt-5">
+
+    <div class="row d-flex justify-content-center">
+
+        <img class="img-fluid" src="{% static 'images/register.svg' %}" alt="register-new-user"
+            style="max-width: 300px; max-height: 300px;">
+
+    </div>
+
+    <form class="needs-validation" method="POST" action="">
 
         {% csrf_token %}
 
-        {{form.as_p}}
+        <!-- Username -->
 
-        <input type="submit" name="Create User">
+        <div class="row">
+
+            <div class="col">
+
+                <label for="userNameInput" class="form-label">Nombre de usuario</label>
+                {{form.username}}
+                <div id="userNameHelp" class="form-text">Su nombre de usuario es el nombre con el que los demás usuarios
+                    podrán identificarle. No tiene que ser su nombre real.</div>
+
+            </div>
+
+        </div>
+
+        <!-- Username -->
+
+        <hr>
+
+        <!-- First Name, Last Name -->
+
+        <div class="row">
+
+            <div class="col">
+
+                <label for="firstNameInput" class="form-label">Nombre</label>
+                {{form.first_name}}
+
+            </div>
+
+            <div class="col">
+
+                <label for="lastNameInput" class="form-label">Apellidos</label>
+                {{form.last_name}}
+
+            </div>
+
+        </div>
+
+        <p class="text-muted small mt-1">Su nombre real y apellidos no serán compartidos con
+            terceros y solo se usarán para personalizar envíos.</p>
+
+        <!-- First Name, Last Name -->
+
+        <hr>
+
+        <!-- Email -->
+
+        <div class="row">
+
+            <div class="col">
+
+                <label for="emailInput" class="form-label">Correo Electrónico</label>
+                {{form.email}}
+                <div id="emailHelp" class="form-text">Su correo electrónico no será compartido con ninguna entidad de
+                    terceros.</div>
+            </div>
+
+        </div>
+
+        <!-- Email -->
+
+        <hr>
+
+        <!-- Password, Confirm Password -->
+
+        <div class="row">
+
+            <div class="col">
+
+                <label for="password1Input" class="form-label">Contraseña</label>
+                {{form.password1}}
+
+            </div>
+
+            <div class="col">
+
+                <label for="password2Input" class="form-label">Confirmar Contraseña</label>
+                {{form.password2}}
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <h5>Recuerda:</h5>
+
+        <ul class="list-group-numbered list-group-flush mt-3 me-5">
+
+            <li class="list-group-item list-group-item-info">Tu contraseña no puede parecerse a otra información
+                personal.</li>
+            <li class="list-group-item list-group-item-warning">Tu contraseña debe contener como mínimo 8 carácteres.
+            </li>
+            <li class="list-group-item list-group-item-info">Tu contranseña no debe ser comunmente usada.</li>
+            <li class="list-group-item list-group-item-warning">Tu contraseña no puede ser completamente numérica.</li>
+
+        </ul>
+
+        <!-- Password, Confirm Password -->
+
+        <hr>
+
+        <!-- Submit Button -->
+
+        <button class="btn btn-outline-success mt-3 mb-3">Registrarse</button>
+
+        <!-- Submit Button -->
 
     </form>
 
 </div>
+
+
+<script>
+
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
+</script>
+
+
 
 {% endblock content %}
