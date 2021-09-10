@@ -2,7 +2,18 @@
 {% load static %}
 {% block content %}
 
+<div class="container mt-auto mb-auto">
 
+    <form method="POST" action="">
 
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <input type="submit" name="Create User">
+
+    </form>
+
+</div>
 
 {% endblock content %}

@@ -60,101 +60,117 @@
 
   </script>
 
-  <title>Ecommerce</title>
+  <title>Moonlight</title>
 
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-xl navbar-light bg-glass" style="z-index: 1;">
+  <!-- Header -->
 
-    <div class="container-fluid">
+  <header>
 
-      <a class="navbar-brand mt-1" href="{% url 'store' %}"><img src="{% static 'images/moon.png' %}"
-          alt="moonlight logo" class="brand" style="margin-top: -5px; margin-bottom: 1px;"";">Moonlight</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-expand-xl navbar-light bg-glass" style="z-index: 1;">
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="container-fluid">
 
-        <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+        <a class="navbar-brand mt-1" href="{% url 'store' %}"><img src="{% static 'images/moon.png' %}"
+            alt="moonlight logo" class="brand" style="margin-top: -5px; margin-bottom: 1px;"";">Moonlight</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'store' %}">Tienda</a>
-          </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'about' %}">Acerca de</a>
-          </li>
+          <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
 
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contacto</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'store' %}">Tienda</a>
+            </li>
 
-        </ul>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'about' %}">Acerca de</a>
+            </li>
 
-        <a href="{% url 'login' %}" class="btn btn-outline-success mb-2 mt-2" style="margin-right: 5px;">Iniciar
-          Sesión</a>
-        <a href="{% url 'register' %}" class="btn btn-outline-success mb-2 mt-2"
-          style="margin-left: 5px; margin-right: 10px;">Registrarse</a>
-        <a href="{% url 'cart' %}" class="btn btn-outline-success position-relative mb-2 mt-2"
-          style="margin-right: 15px;">
-          <i class="fas fa-shopping-cart"></i>
-          <span id="cart-total" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"
-            style="padding: 6px 10px 6px 10px;">
-            {{cartItems}}
-          </span>
-          <span class="visually-hidden">Productos en el carrito</span>
-          </span>
-        </a>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contacto</a>
+            </li>
 
-        <select class="selectpicker" data-width="fit">
-          <option>Español</option>
-          <option>English</option>
-          <option>Português</option>
-        </select>
-
-        <ul class="navbar nav">
-
-          <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdownMenuLink"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40"
-              height="40" class="rounded-circle">
-          </a>
-
-          <ul class="dropdown-menu dropdown-menu-xl-end dropdown-menu-sm-start"
-            aria-labelledby="navbarDropdownMenuLink">
-            <p class="ms-3 me-3 mt-2">Fox</p>
-            <hr>
-            <li><a class="dropdown-item" href="{% url 'dashboard' %}">Perfil</a></li>
-            <li><a class="dropdown-item" href="{% url 'settings' %}">Configuración</a></li>
-            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
           </ul>
 
-        </ul>
+          <a href="{% url 'login' %}" class="btn btn-outline-success mb-2 mt-2" style="margin-right: 5px;">Iniciar
+            Sesión</a>
+          <a href="{% url 'register' %}" class="btn btn-outline-success mb-2 mt-2"
+            style="margin-left: 5px; margin-right: 10px;">Registrarse</a>
+          <a href="{% url 'cart' %}" class="btn btn-outline-success position-relative mb-2 mt-2"
+            style="margin-right: 15px;">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-total"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"
+              style="padding: 6px 10px 6px 10px;">
+              {{cartItems}}
+            </span>
+            <span class="visually-hidden">Productos en el carrito</span>
+            </span>
+          </a>
+
+          <select class="selectpicker" data-width="fit">
+            <option>Español</option>
+            <option>English</option>
+            <option>Português</option>
+          </select>
+
+          <ul class="navbar nav">
+
+            <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdownMenuLink"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
+                width="40" height="40" class="rounded-circle">
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-xl-end dropdown-menu-sm-start"
+              aria-labelledby="navbarDropdownMenuLink">
+              <p class="ms-3 me-3 mt-2">Fox</p>
+              <hr>
+              <li><a class="dropdown-item" href="{% url 'dashboard' %}">Perfil</a></li>
+              <li><a class="dropdown-item" href="{% url 'settings' %}">Configuración</a></li>
+              <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+            </ul>
+
+          </ul>
+
+        </div>
 
       </div>
 
-    </div>
+    </nav>
 
-  </nav>
+  </header>
 
+  <!-- Header -->
 
-  <section class="bg-glass" style="min-height: 100%; margin: 10px;">
+  <!-- Main Content -->
+
+  <main class="bg-glass" style="min-height: 100%;">
     {% block content %}
 
     {% endblock content %}
-  </section>
+  </main>
 
+  <!-- Main Content -->
 
   <!-- Footer -->
+
   <footer class="bg-glass text-center text-dark">
     <!-- Grid container -->
+
     <div class="container p-4">
+
       <!-- Section: Social media -->
+
       <section class="mb-4">
+
         <!-- Facebook -->
         <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
 
@@ -173,22 +189,27 @@
         <!-- Github -->
         <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
       </section>
+
       <!-- Section: Social media -->
 
       <!-- Section: Form -->
+
       <section class="">
         <form action="">
           <!--Grid row-->
           <div class="row d-flex justify-content-center">
             <!--Grid column-->
+
             <div class="col-auto">
               <p class="pt-2">
                 <strong>Suscríbete a la newsletter</strong>
               </p>
             </div>
+
             <!--Grid column-->
 
             <!--Grid column-->
+
             <div class="col-md-5 col-12">
               <!-- Email input -->
               <div class="form-outline form-white mb-4">
@@ -196,17 +217,21 @@
                 <label class="form-label" for="form5Example2">Correo electronico</label>
               </div>
             </div>
+
             <!--Grid column-->
 
             <!--Grid column-->
+
             <div class="col-auto">
               <!-- Submit button -->
               <button type="submit" class="btn btn-outline-dark mb-4">
                 Suscribirse
               </button>
             </div>
+
             <!--Grid column-->
           </div>
+
           <!--Grid row-->
         </form>
       </section>
