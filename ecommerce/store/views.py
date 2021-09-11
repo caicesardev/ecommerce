@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import CreateUserForm
 
@@ -92,47 +95,76 @@ def contact(request):
     return render(request, 'store/contact.html', context)
 
 
-def login(request):
+def loginPage(request):
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(
             customer=customer, complete=False)
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
+
+        return redirect('store')
     else:
         items = []
         order = {'get_cart_total': 0, 'get_cart_items': 0}
         cartItems = order['get_cart_items']
+
+        if request.method == "POST":
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+
+            if user:
+                login(request, user)
+                return redirect('store')
+            else:
+                messages.info(
+                    request, 'El nombre de usuario o la contraseña son incorrectos.')
 
     context = {'items': items, 'order': order,
                'cartItems': cartItems, 'shipping': False}
     return render(request, 'store/login.html', context)
 
 
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
+
+
 def register(request):
-    form = CreateUserForm()
-
-    if request.method == "POST":
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(
             customer=customer, complete=False)
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
+
+        return redirect('store')
     else:
         items = []
         order = {'get_cart_total': 0, 'get_cart_items': 0}
         cartItems = order['get_cart_items']
+
+        form = CreateUserForm()
+
+        if request.method == "POST":
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+
+                user = form.cleaned_data.get('username')
+                messages.success(
+                    request, f"Se ha creado el usuario {user} correctamente")
+
+                return redirect('login')
 
     context = {'form': form, 'items': items, 'order': order,
                'cartItems': cartItems, 'shipping': False}
     return render(request, 'store/register.html', context)
 
 
+@login_required(login_url='login')
 def dashboard(request):
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -150,6 +182,7 @@ def dashboard(request):
     return render(request, 'store/dashboard.html', context)
 
 
+@login_required(login_url='login')
 def settings(request):
     if request.user.is_authenticated:
         customer = request.user.customer

@@ -58,14 +58,5 @@ class CreateUserForm(UserCreationForm):
                     'placeholder': 'Introduzca su correo electrónico',
                     'required': 'required',
                 }
-            ),
-            'password1': forms.PasswordInput(
-                attrs={
-                    'class': 'form-control',
-                    'id': 'password1Input',
-                    'placeholder': 'Introduzca su contraseña',
-                    'required': 'required',
-                }
-            ),
-
+            )
         }

@@ -3,6 +3,93 @@
 {% block content %}
 
 
+<div class="container mt-5">
+
+    <div class="row d-flex justify-content-center">
+
+        <img class="img-fluid" src="{% static 'images/register.svg' %}" alt="register-new-user"
+            style="max-width: 300px; max-height: 300px;">
+
+    </div>
+
+    <form class="mt-5" method="POST">
+
+        {% csrf_token %}
+
+        <!-- Email -->
+
+        <div class="row">
+
+            <div class="col">
+
+                <label for="usernameInput" class="form-label">Nombre de usuario</label>
+                <input class="form-control" id="usernameInput" type="text" name="username"
+                    placeholder="Introduzca su nombre de usuario">
+
+            </div>
+
+        </div>
+
+        <!-- Email -->
+
+        <hr>
+
+        <!-- Password -->
+
+        <div class="row d-flex flex-column flex-sm-row">
+
+            <div class="col">
+
+                <label for="passwordInput" class="form-label">Contraseña</label>
+                <input class="form-control" id="passwordInput" type="password" name="password"
+                    placeholder="Introduzca su contraseña">
+
+            </div>
+
+        </div>
+
+        <!-- Password -->
+
+        <hr>
+
+        {% if messages %}
+
+        <div class="bg-warning fw-bolder rounded-3 p-1 mt-3 mb-3">
+
+            {% for message in messages %}
+
+            <p class="m-3">{{message}}</p>
+
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
+        <div class="d-flex d-inline justify-content-start">
+
+            <a href="{% url 'register' %}" class="link-primary">¿No tiene una cuenta? Regístrese</a>
+            <a href="#" class="link-primary ms-auto">¿Olvidaste la contraseña? Restablecer</a>
+
+        </div>
+
+        <br>
+
+        <!-- Submit Button -->
+
+        <div class="d-flex justify-content-center justify-content-sm-end mt-3">
+
+            <button class="btn btn-outline-success" type="submit">Iniciar Sesión</button>
+
+        </div>
+
+        <!-- Submit Button -->
+
+    </form>
+
+
+
+</div>
 
 
 {% endblock content %}

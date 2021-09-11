@@ -99,10 +99,15 @@
 
           </ul>
 
+          {% if not user.is_authenticated %}
+
           <a href="{% url 'login' %}" class="btn btn-outline-success mb-2 mt-2" style="margin-right: 5px;">Iniciar
             Sesión</a>
           <a href="{% url 'register' %}" class="btn btn-outline-success mb-2 mt-2"
             style="margin-left: 5px; margin-right: 10px;">Registrarse</a>
+
+          {% endif %}
+
           <a href="{% url 'cart' %}" class="btn btn-outline-success position-relative mb-2 mt-2"
             style="margin-right: 15px;">
             <i class="fas fa-shopping-cart"></i>
@@ -115,11 +120,14 @@
             </span>
           </a>
 
+
           <select class="selectpicker" data-width="fit">
             <option>Español</option>
             <option>English</option>
             <option>Português</option>
           </select>
+
+          {% if user.is_authenticated %}
 
           <ul class="navbar nav">
 
@@ -131,14 +139,16 @@
 
             <ul class="dropdown-menu dropdown-menu-xl-end dropdown-menu-sm-start"
               aria-labelledby="navbarDropdownMenuLink">
-              <p class="ms-3 me-3 mt-2">Fox</p>
+              <p class="ms-3 me-3 mt-2">{{ request.user }}</p>
               <hr>
               <li><a class="dropdown-item" href="{% url 'dashboard' %}">Perfil</a></li>
               <li><a class="dropdown-item" href="{% url 'settings' %}">Configuración</a></li>
-              <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a></li>
             </ul>
 
           </ul>
+
+          {% endif %}
 
         </div>
 
