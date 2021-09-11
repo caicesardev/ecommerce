@@ -84,7 +84,8 @@
                         <label class="ms-1 mt-2" for="userName">Nombre de Usuario</label>
 
                         <input type="text" class="form-control mt-1" id="userName"
-                            placeholder="Introduzca su nombre de usuario" aria-describedby="userNameHelp">
+                            placeholder="Introduzca su nombre de usuario" aria-describedby="userNameHelp"
+                            value="{{ request.user }}">
 
                         <p id="userNameHelp" class="text-muted small ms-1 mt-1">El nombre de usuario con el
                             que se
@@ -100,15 +101,29 @@
 
                     <div class="col">
 
-                        <label class="ms-1 mt-2" for="fullName">Nombre Completo</label>
+                        <label class="ms-1 mt-2" for="fullName">Nombre</label>
 
                         <input type="text" class="form-control mt-1" id="fullName" aria-describedby="fullNameHelp"
-                            placeholder="Introduzca su nombre completo">
-
-                        <p id="fullNameHelp" class="text-muted small ms-1 mt-1">Su nombre real aparecerá aquí. Es el
-                            nombre que usaremos al hacer los envíos.</p>
+                            placeholder="Introduzca su nombre" value="{{ request.user.first_name }}">
 
                     </div>
+
+                    <div class="col">
+
+                        <label class="ms-1 mt-2" for="lastName">Apellidos</label>
+
+                        <input type="text" class="form-control mt-1" id="lastName" aria-describedby="lastNameHelp"
+                            placeholder="Introduzca sus apellidos" value="{{ request.user.last_name }}">
+                    </div>
+
+                    <p class="text-muted small ms-1 mt-1">Su nombre real aparecerá aquí. Es el nombre que usaremos al
+                        hacer los envíos.</p>
+
+                </div>
+
+                <hr>
+
+                <div class="row">
 
                     <div class="col">
 
