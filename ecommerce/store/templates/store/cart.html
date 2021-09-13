@@ -1,5 +1,7 @@
 {% extends 'store/main.html' %}
 {% load static %}
+{% block title %} Moonlight | Carrito {% endblock title %}
+
 {% block content %}
 
 <div class="container-fluid mt-4 mb-4">
@@ -73,8 +75,10 @@
             <p>{{item.quantity}}</p>
 
             <div class="ms-3 mb-2" style="display: inline-block;">
-                <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static 'images/up-arrow.png' %}" alt="up-arrow">
-                <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static 'images/down-arrow.png' %}" alt="down-arrow">
+                <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart"
+                    src="{% static 'images/up-arrow.png' %}" alt="up-arrow">
+                <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart"
+                    src="{% static 'images/down-arrow.png' %}" alt="down-arrow">
             </div>
 
         </div>
