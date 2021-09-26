@@ -3,6 +3,15 @@ from django.contrib.auth.models import User
 from django.db.models.expressions import Value
 
 
+class Profile(models.Model):
+    user = models.OneToOneField(
+        User, null=True, blank=True, on_delete=models.CASCADE)
+    image = models.ImageField(default='default.png', upload_to='profile_pics')
+
+    def __str__(self):
+        return f'{self.user.username} Profile'
+
+
 class Customer(models.Model):
     user = models.OneToOneField(
         User, null=True, blank=True, on_delete=models.CASCADE)
@@ -18,7 +27,8 @@ class Product(models.Model):
     description = models.CharField(max_length=200, null=True)
     price = models.FloatField()
     digital = models.BooleanField(default=False, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True,
+                              upload_to='product_images')
 
     def __str__(self):
         return self.name

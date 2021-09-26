@@ -133,13 +133,12 @@
 
             <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdownMenuLink"
               data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                width="40" height="40" class="rounded-circle">
+              <img src="{{user.profile.image.url}}" width="40" height="40" class="rounded-circle">
             </a>
 
             <ul class="dropdown-menu dropdown-menu-xl-end dropdown-menu-sm-start"
               aria-labelledby="navbarDropdownMenuLink">
-              <p class="ms-3 me-3 mt-2">{{ request.user }}</p>
+              <p class="ms-3 me-3 mt-2">{{ user.username }}</p>
               <hr>
               <li><a class="dropdown-item" href="{% url 'dashboard' %}">Perfil</a></li>
               <li><a class="dropdown-item" href="{% url 'settings' %}">Configuración</a></li>

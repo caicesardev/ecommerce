@@ -66,8 +66,8 @@
             <form>
 
                 <div class="row justify-content-center align-items-center">
-                    <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                        alt="profile-picture" class="rounded-circle" style="max-width: 300px; max-height: 300px;">
+                    <img src="{{user.profile.image.url}}" alt="profile-picture" class="rounded-circle"
+                        style="max-width: 300px; max-height: 300px;">
                 </div>
 
                 <div class="row d-flex justify-content-center mt-3 mb-1 ms-auto me-auto">
@@ -86,11 +86,30 @@
 
                         <input type="text" class="form-control mt-1" id="userName"
                             placeholder="Introduzca su nombre de usuario" aria-describedby="userNameHelp"
-                            value="{{ request.user }}">
+                            value="{{ user.username }}">
 
                         <p id="userNameHelp" class="text-muted small ms-1 mt-1">El nombre de usuario con el
                             que se
                             identificará en la página web.</p>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <label class="ms-1 mt-2" for="eMail">Correo electrónico</label>
+
+                        <input type="text" class="form-control mt-1" id="eMail"
+                            placeholder="Introduzca su correo electrónico" aria-describedby="eMailHelp"
+                            value="{{ user.email }}">
+
+                        <p id="eMailHelp" class="text-muted small ms-1 mt-1">El correo electrónico con el que se
+                            registró a la página web.</p>
 
                     </div>
 
@@ -105,7 +124,7 @@
                         <label class="ms-1 mt-2" for="fullName">Nombre</label>
 
                         <input type="text" class="form-control mt-1" id="fullName" aria-describedby="fullNameHelp"
-                            placeholder="Introduzca su nombre" value="{{ request.user.first_name }}">
+                            placeholder="Introduzca su nombre" value="{{ user.first_name }}">
 
                     </div>
 
@@ -114,7 +133,7 @@
                         <label class="ms-1 mt-2" for="lastName">Apellidos</label>
 
                         <input type="text" class="form-control mt-1" id="lastName" aria-describedby="lastNameHelp"
-                            placeholder="Introduzca sus apellidos" value="{{ request.user.last_name }}">
+                            placeholder="Introduzca sus apellidos" value="{{ user.last_name }}">
                     </div>
 
                     <p class="text-muted small ms-1 mt-1">Su nombre real aparecerá aquí. Es el nombre que usaremos al
