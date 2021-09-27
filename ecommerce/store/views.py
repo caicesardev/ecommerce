@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import *
-from .forms import CreateUserForm
+from .forms import CreateUserForm, UserUpdateForm, ProfileUpdateForm
 
 import json
 
@@ -184,6 +184,23 @@ def dashboard(request):
 
 @login_required(login_url='login')
 def settings(request):
+
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST,
+                                instance=request.user)
+        p_form = ProfileUpdateForm(
+            request.POST, request.FILES, instance=request.user.profile)
+
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(
+                request, 'Tu perfil se ha actualizado correctamente')
+            return redirect('settings')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(
@@ -195,8 +212,12 @@ def settings(request):
         order = {'get_cart_total': 0, 'get_cart_items': 0}
         cartItems = order['get_cart_items']
 
-    context = {'items': items, 'order': order,
-               'cartItems': cartItems, 'shipping': False}
+    context = {'items': items,
+               'order': order,
+               'cartItems': cartItems,
+               'shipping': False,
+               'u_form': u_form,
+               'p_form': p_form}
     return render(request, 'store/settings.html', context)
 
 
